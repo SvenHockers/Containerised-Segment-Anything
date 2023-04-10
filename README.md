@@ -6,7 +6,10 @@ In this repository the <a href="https://github.com/facebookresearch/segment-anyt
 To containerise Segment Anything first, a brief introduction of the Segment Anything AI should be establisched. After some research into Flask environements will be held to ensure the containerised version of Segment Anything will operate accordingly and finnaly some documentation w.r.t. Docker and containerisation of AIs should be discussed.  
 
 ## Segment Anything 
+Segment Anything is a promptable image segmentation AI which is developed by Meta. In addition to segmenting 2D images, Segment Anything is able to mask an object from a 2D image which than can be tracked in video rendered in 3D or used as an input for other systems. <br>
 
+### Model Basics 
+![Segment Anything Flow Chart](readmeFiles/flowChart.png)
 ## Falsk 
 
 ## Docker 
