@@ -10,6 +10,12 @@ Segment Anything is a promptable image segmentation AI which is developed by Met
 
 ### Model Basics 
 ![Segment Anything Flow Chart](readmeFiles/flowChart.png)
+
+
+### Missoulanious 
+Keep in mind that although the Segment Anything is open-sourced on Github. The software is under a **Apache License 2.0** which imposes some restrictions and limitations on the use of the software as shown in the figure below.
+
+![Apache License 2.0](readmeFiles/appacheLiciense.png)
 ## Falsk 
 
 ## Docker 
