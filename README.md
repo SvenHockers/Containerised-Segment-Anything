@@ -20,10 +20,10 @@ Keep in mind that although the SAM is open-sourced on Github. The software is un
 
 ![Apache License 2.0](readmeFiles/appacheLiciense.png)
 
-## Docker 
+## Container Setup
 The docker image should be able to import an image, generate a mask on the image and return the mask. 
 Than another container or the within the Django framwork itself the mask can be overlayed over the input image to generate the final output.
-
+### Docker 
 The docker file is setup as shown in the script below. 
 
 The dependencies are located in <a href="requirement.txt">requirement.txt</a> and are automatically installed during image setup.
@@ -40,6 +40,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 CMD ["pyhton", "/segment_anything/activateSAM.py"]
 ```
+
+### SAM Model
+The SAM model is pulled from the Github repository using the install command
+
+```
+pip install git+https://github.com/facebookresearch/segment-anything.git
+```
+
+After the model checkpoints have to be downlaoded, of which three are available `vit_h` is the **default** model and will be included. At a later stage the other two model (`vit_l` & `vit_b`) maybe included also, making it possible to automatically or manually toggle between models depending on the user requirements.  
 
 
 
