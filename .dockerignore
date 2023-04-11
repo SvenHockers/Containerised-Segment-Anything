@@ -1,4 +1,5 @@
 readmeFiles
 LICENSE
-.egg-info
-.md 
+*.egg-info
+*.md 
+.gitignore
