@@ -19,9 +19,27 @@ The image is converted by the image encoder which outputs an image embedding whi
 Keep in mind that although the SAM is open-sourced on Github. The software is under a **Apache License 2.0** which imposes some restrictions and limitations on the use of the software as shown in the figure below.
 
 ![Apache License 2.0](readmeFiles/appacheLiciense.png)
-## Falsk 
 
 ## Docker 
+The docker image should be able to import an image, generate a mask on the image and return the mask. 
+Than another container or the within the Django framwork itself the mask can be overlayed over the input image to generate the final output.
+
+The docker file is setup as shown in the script below. 
+
+The dependencies are located in <a href="requirement.txt">requirement.txt</a> and are automatically installed during image setup.
+
+```
+FROM python3.10-slim 
+
+WORKDIR /segment_anything 
+
+COPY requirement.txt ./
+COPY ./segment_anything ./segment_anything
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["pyhton", "/segment_anything/activateSAM.py"]
+```
 
 
 
