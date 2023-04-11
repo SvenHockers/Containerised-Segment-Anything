@@ -31,15 +31,15 @@ The dependencies are located in <a href="requirement.txt">requirement.txt</a> an
 ```
 FROM python:3.10-slim
 
-WORKDIR /segment_anything 
+WORKDIR /SAM
 
-COPY requirement.txt ./
-COPY ./segment_anything ./segment_anything
-COPY ./model/sam_vit_h_4b8939.pth ./mdoel/vit_h
+COPY ./requirement.txt /SAM/requirement.txt
+RUN pip install --no-cache-dir --upgrade /SAM/requirement.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY ./segment_anything ./SAM/SAM
+COPY ./model/sam_vit_h_4b8939.pth ./SAM/model/vit_h.pth
 
-CMD ["pyhton", "/segment_anything/activateSAM.py"]
+CMD ["pyhton", "./segment_anything/activateSAM.py"]
 ```
 
 ### SAM Model
