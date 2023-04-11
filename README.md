@@ -29,12 +29,13 @@ The docker file is setup as shown in the script below.
 The dependencies are located in <a href="requirement.txt">requirement.txt</a> and are automatically installed during image setup.
 
 ```
-FROM python3.10-slim 
+FROM python:3.10-slim
 
 WORKDIR /segment_anything 
 
 COPY requirement.txt ./
 COPY ./segment_anything ./segment_anything
+COPY ./model/sam_vit_h_4b8939.pth ./mdoel/vit_h
 
 RUN pip install --no-cache-dir -r requirements.txt
 

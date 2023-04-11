@@ -4,6 +4,7 @@ WORKDIR /segment_anything
 
 COPY requirement.txt ./
 COPY ./segment_anything ./segment_anything
+COPY ./model/sam_vit_h_4b8939.pth ./mdoel/vit_h
 
 RUN pip install --no-cache-dir -r requirements.txt
 
