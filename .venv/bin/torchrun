@@ -1,4 +1,4 @@
-#!/Users/svenhockers/Desktop/VScode/Containerised-Segment-Anything/.pyVenv/bin/python3.11
+#!/Users/svenhockers/Desktop/VScode/Containerised-Segment-Anything/.venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys

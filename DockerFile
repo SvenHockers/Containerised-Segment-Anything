@@ -1,0 +1,10 @@
+FROM python:3.10-slim
+
+WORKDIR /segment_anything 
+
+COPY requirement.txt ./
+COPY ./segment_anything ./segment_anything
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["pyhton", "/segment_anything/activateSAM.py"]
