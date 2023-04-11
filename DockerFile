@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir --upgrade /SAM/requirement.txt
 
 COPY ./segment_anything ./SAM/SAM
 COPY ./model/sam_vit_h_4b8939.pth ./SAM/model/vit_h.pth
-COPY ./SAMBridge /SAM/samAPI
+COPY ./SAMBridge ./SAM/DockerAPI
 
 CMD ["pyhton", "./segment_anything/activateSAM.py", "--host", "0.0.0.0", "--port", "80"]
