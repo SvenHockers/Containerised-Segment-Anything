@@ -11,6 +11,8 @@ Segment Anything is a promptable image segmentation AI which is developed by Met
 ### Model Basics 
 ![Segment Anything Flow Chart](readmeFiles/flowChart.png)
 
+The image is converted by the image encoder which outputs an image embedding which can be efficiently queried by a vararity of user prompts to produce object masks in real-time. 
+
 
 ### Missoulanious 
 Keep in mind that although the Segment Anything is open-sourced on Github. The software is under a **Apache License 2.0** which imposes some restrictions and limitations on the use of the software as shown in the figure below.
