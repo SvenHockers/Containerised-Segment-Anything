@@ -42,13 +42,22 @@ CMD ["pyhton", "/segment_anything/activateSAM.py"]
 ```
 
 ### SAM Model
-The SAM model is pulled from the Github repository using the install command
+The SAM model is pulled from the Github repository.
 
 ```
 pip install git+https://github.com/facebookresearch/segment-anything.git
 ```
 
-After the model checkpoints have to be downlaoded, of which three are available `vit_h` is the **default** model and will be included. At a later stage the other two model (`vit_l` & `vit_b`) maybe included also, making it possible to automatically or manually toggle between models depending on the user requirements.  
+After the model checkpoints have to be downloaded, of which three are available `vit_h` is the **default** model and will be included. At a later stage the other two model (`vit_l` & `vit_b`) maybe included also, making it possible to automatically or manually toggle between models depending on the user requirements.
+
+These are all structured in a directory which makes it easy to navigate the environment at a later stage. 
+
+### SAM init file 
+To initialise the SAM model and be able to communicate using a docker container an extra `Python` script has been created to handle communication to and from the container, setup and execute the model. <br>
+
+The script does not include any image pre- or post processing, this could be handled in the future by other containers or back-end depending on the need. This has been done for two reasons, firstly, the container as is is already computational heavy due to the nature of containerising a large model and secondly this way the output from the container is just the mask which allows more flexibillity with the container output.
+
+
 
 
 
