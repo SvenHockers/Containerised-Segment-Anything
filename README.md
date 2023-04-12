@@ -40,7 +40,7 @@ COPY ./segment_anything ./SAM/SAM
 COPY ./model/sam_vit_h_4b8939.pth ./SAM/model/vit_h.pth
 COPY ./SAMBridge ./SAM/DockerAPI
 
-CMD ["pyhton", "./segment_anything/activateSAM.py", "--host", "0.0.0.0", "--port", "80"]
+CMD ["pyhton", "./SAM/DockerAPI.py", "--host", "0.0.0.0", "--port", "80"]
 ```
 
 ### SAM Model
@@ -54,7 +54,7 @@ After the model checkpoints have to be downloaded, of which three are available 
 
 These are all structured in a directory which makes it easy to navigate the environment at a later stage. 
 
-### SAM init file 
+### SAM Model Interfase 
 To initialise the SAM model and be able to communicate using a docker container an extra `Python` script has been created to handle communication to and from the container, setup and execute the model. <br>
 
 The script does not include any image pre- or post processing, this could be handled in the future by other containers or back-end depending on the need. This has been done for two reasons, firstly, the container as is is already computational heavy due to the nature of containerising a large model and secondly this way the output from the container is just the mask which allows more flexibillity with the container output.

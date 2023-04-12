@@ -23,7 +23,7 @@ while recieveData:
 
     """ Should I include here a wait function before moving on? """
 
-from segment_anything import SamAutomaticMaskGenerator, sam_model_registry
+from SAM import SamAutomaticMaskGenerator, sam_model_registry
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
 mask_generator = SamAutomaticMaskGenerator(sam)
 masks = mask_generator.generate(data)
