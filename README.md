@@ -16,7 +16,7 @@ The image is converted by the image encoder which outputs an image embedding whi
 
 
 ### License
-Keep in mind that although the SAM is open-sourced on Github. The software is under a **Apache License 2.0** which imposes some restrictions and limitations on the use of the software as shown in the figure below.
+Keep in mind that although the SAM is open-sourced on Github. The software is under a **Apache License 2.0** which imposes some restrictions and limitations on the use of the software as shown in the figure below. Since this project is based on the SAM model we will also adhere to the Apache Lincense 2.0. 
 
 ![Apache License 2.0](readmeFiles/appacheLiciense.png)
 
