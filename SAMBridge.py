@@ -1,8 +1,9 @@
 import sys
 import time 
 import socket
+from .SAM/model import vit_h.pth
 
-sam_checkpoint = "sam_vit_h_4b8939.pth"
+sam_checkpoint = "/SAM/model/vit_h.pth"
 model_type = "vit_h"
 
 print(sys.argv[1])
