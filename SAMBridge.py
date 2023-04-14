@@ -22,6 +22,8 @@ while recieveData:
     conn.close()
     print("Data recieved in container: %s" % (data)) 
 
+    img, qualityCheck = data
+
     """ Should I include here a wait function before moving on? """
 
 """
@@ -36,6 +38,16 @@ sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
 sam.to(device=device)
 mask_generator = SamAutomaticMaskGenerator(sam)
 masks = mask_generator.generate(data)
+
+"""
+This quality score extraction can also be done outsite the container, still need to investigate what 
+to do with this quality score
+"""
+if qualityCheck = True:
+    maskQuality = masks["predicted_iou"]
+    maskStability = masks["stability_score"]
+
+    qualtiyScore = maskQuality, maskStability
 
 
 
