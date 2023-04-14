@@ -22,7 +22,7 @@ while recieveData:
     conn.close()
     print("Data recieved in container: %s" % (data)) 
 
-    img, qualityCheck = data
+    img, qualityCheck, maskQuality, maskStability = data
 
     """ Should I include here a wait function before moving on? """
 
@@ -36,18 +36,26 @@ device = "cuda"
 
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
 sam.to(device=device)
-mask_generator = SamAutomaticMaskGenerator(sam)
-masks = mask_generator.generate(data)
 
-"""
-This quality score extraction can also be done outsite the container, still need to investigate what 
-to do with this quality score
-"""
-if qualityCheck = True:
+if qualityCheck == False:
+    mask_generator = SamAutomaticMaskGenerator(sam)
+    masks = mask_generator.generate(img)
+
+    """
+    This can also be done outsite the container so, may remove this section
+    """
     maskQuality = masks["predicted_iou"]
     maskStability = masks["stability_score"]
 
     qualtiyScore = maskQuality, maskStability
+
+if qualityCheck == True:
+    mask_generator = SamAutomaticMaskGenerator(
+        model = sam,
+        pred_iou_thresh = maskQuality,
+        stability_score_thresh = maskStability,
+    )
+    masks = mask_generator.generate(img)
 
 
 
