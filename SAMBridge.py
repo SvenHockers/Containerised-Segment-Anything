@@ -3,7 +3,8 @@ import time
 import socket
 from .SAM/model import vit_h.pth
 
-sam_checkpoint = "/SAM/model/vit_h.pth"
+sys.path.insert(1, '/SAM/model')
+import vit_h.pth as sam_checkpoint
 model_type = "vit_h"
 
 print(sys.argv[1])
@@ -23,10 +24,20 @@ while recieveData:
 
     """ Should I include here a wait function before moving on? """
 
+"""
+This function initialise the ANN model and generates the mask 
+"""
+
 from SAM import SamAutomaticMaskGenerator, sam_model_registry
+
+device = "cuda" 
+
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+sam.to(device=device)
 mask_generator = SamAutomaticMaskGenerator(sam)
 masks = mask_generator.generate(data)
+
+
 
 for i in range(1,10):
     time.sleep(2)
