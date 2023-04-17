@@ -54,10 +54,12 @@ After the model checkpoints have to be downloaded, of which three are available 
 
 These are all structured in a directory which makes it easy to navigate the environment at a later stage. 
 
-### SAM Model Interfase 
+### SAM Model Interface 
 To initialise the SAM model and be able to communicate using a docker container an extra `Python` script has been created to handle communication to and from the container, setup and execute the model. <br>
 
 The script does not include any image pre- or post processing, this could be handled in the future by other containers or back-end depending on the need. This has been done for two reasons, firstly, the container as is is already computational heavy due to the nature of containerising a large model and secondly this way the output from the container is just the mask which allows more flexibillity with the container output.
+
+In the current form, the model interface is still in development, and new features of the SAM model will be included in the future. 
 
 
 
